@@ -9,7 +9,10 @@
   "author": "rtom",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^8.5.3",
+    "mongoose": "^4.13.6",
     "underscore": "^1.13.7"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.6"
   }
 }
