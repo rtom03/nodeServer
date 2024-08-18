@@ -1,14 +1,13 @@
+const EventEmitter = require('events')
 
-//module wrapper function 
-// (function (exports, require, module, __filename, __dirname) {
-
-var url = 'http://mylogger.io/log'
-
-function log(message) {
-    console.log(message)
+class Logger extends EventEmitter {
+    log(message) {
+        console.log(message)
+        this.emit('log', { data: '{name:tom,job:software}' })
+    }
 }
 
-module.exports = log;
+module.exports = Logger
 
 // })
 //implementation

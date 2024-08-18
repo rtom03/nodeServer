@@ -10,13 +10,9 @@ const emitter = new EventEmitter()
 
 //Register a listener
 
-emitter.on('messageLogged', function () {
-    console.log('Listener called')
-
+emitter.on('log', (arg) => {
+    console.log('logging', arg)
 })
-
-// Raise an event
-emitter.emit('messageLogged')
-
-
 //emit Making a noise signalling something is happening
+
+emitter.emit('log', { data: '{name:tom,job:software}' })
