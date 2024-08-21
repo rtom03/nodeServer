@@ -1,17 +1,18 @@
-const Logger = require('./logger')
-const logger = new Logger();
+import express from 'express'
+import bodyParser from 'body-parser'
+import usersRoutes from './routes/users.js'
 
-logger.on('log', (arg) => {
-    console.log('logging', arg)
+const app = express();
+const PORT = 5000;
+
+
+app.use(bodyParser.json())
+
+app.use('/users', usersRoutes)
+app.get('/', (req, res) => {
+    console.log('TEST')
+    res.send('Hello World')
 })
-logger.log('message')
 
 
-
-let _ = require('underscore')
-
-// Core module
-// File or folder
-// node_modules
-
-let result = _.contains([1, 2, 3], 2)
+app.listen(PORT, () => console.log(`server running on port: http://localhost:${PORT}`))  
