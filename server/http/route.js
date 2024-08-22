@@ -1,11 +1,16 @@
-const http = require('http')
+import http from 'http'
+
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/api/jobs') {
-        res.write('Welcome to our home page')
-        res.end()
-    }
+    res.url('/')
+    res.method
+
 })
 
-server.listen(5000)
 
+const PORT = 5000
+
+
+server.listen(PORT, () => {
+    console.log(``)
+})

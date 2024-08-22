@@ -1,29 +1,22 @@
 import express from 'express';
-import bodyParser from 'body-parser'
+import { getUser, getUsers, updateUser, deleteUser, createUser } from '../controllers/users.js';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const router = express.Router();
 
-const users = [{
-    firstName: "John",
-    lastName: "Doe",
-    age: 25
-},
-{
-    firstName: "Mia",
-    lastName: "Kunis",
-    age: 25
-}]
 
-router.get('/', (req, res) => {
-    // res.send('Welcome Users')
-    res.send(users)
-})
+router.post('/', createUser)
 
-router.post('/', (req, res) => {
-    const user = req.body
-    users.push(user)
-    res.send(`User with the name ${user.firstName} added to the database`)
-})
+// router.post('/', createUser)
+
+router.get('/', getUsers)
+
+router.get('/:id', getUser)
+
+router.delete('/:id', deleteUser)
+
+router.patch('/:id', updateUser)
+
 
 export default router;
